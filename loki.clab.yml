@@ -15,7 +15,6 @@ topology:
 
   kinds:
     nokia_srlinux:
-      #image: ghcr.io/nokia/srlinux:23.10.1
       image: registry.srlinux.dev/pub/srlinux:24.3.1
       type: ixrd2l
     linux:
@@ -87,29 +86,13 @@ topology:
         - configs/grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
         - configs/grafana/dashboards:/var/lib/grafana/dashboards
       ports:
-        - 3000:3000
+        - 8000:3000
       env:
-        #GF_INSTALL_PLUGINS: https://algenty.github.io/flowcharting-repository/archives/agenty-flowcharting-panel-1.0.0d.220606199-SNAPSHOT.zip;agenty-flowcharting-panel
-        # env vars to enable anonymous access
         GF_ORG_ROLE: "Admin"
         GF_ORG_NAME: "Main Org"
         GF_AUTH_ANONYMOUS_ENABLED: "true"
         GF_AUTH_ANONYMOUS: "true"
-        #HTTP_PROXY: "http://10.158.100.2:8080"
-        #HTTPS_PROXY: "http://10.158.100.2:8080"
-        #NO_PROXY: "127.0.0.1,prometheus,loki"
       group: "10"
-
-        #syslog:
-        #kind: linux
-        #mgmt-ipv4: 172.80.80.44
-        #image: linuxserver/syslog-ng:4.1.1
-        #binds:
-        #- configs/syslog/syslog-ng.conf:/config/syslog-ng.conf
-        #- configs/syslog/log:/var/log
-        #env:
-        #PUID: 0
-        #PGID: 0
 
     promtail:
       kind: linux
