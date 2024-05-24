@@ -24,7 +24,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -280,10 +279,10 @@
           "value": "leaf1"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
+          "type": "loki",
+          "uid": "P8E80F9AEF21F6940"
         },
-        "definition": "label_values(source)",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "",
@@ -291,8 +290,10 @@
         "name": "NE",
         "options": [],
         "query": {
-          "query": "label_values(source)",
-          "refId": "Prometheus-NE-Variable-Query"
+          "label": "source",
+          "refId": "LokiVariableQueryEditor-VariableQuery",
+          "stream": "",
+          "type": 1
         },
         "refresh": 2,
         "regex": "",
@@ -306,8 +307,8 @@
       {
         "current": {
           "selected": false,
-          "text": "1",
-          "value": "1"
+          "text": "sr_aaa_mgr",
+          "value": "sr_aaa_mgr"
         },
         "datasource": {
           "type": "loki",
@@ -339,7 +340,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "SR Linux Telemetry",
+  "title": "SR Linux Logging",
   "uid": "kawVPD-Gk",
   "version": 1,
   "weekStart": ""
